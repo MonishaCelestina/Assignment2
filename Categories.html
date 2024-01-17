@@ -16,16 +16,16 @@
 
     <style>
     body {
-      padding-top: 56px; 
+        padding-top: 56px;
     }
-  
+    
     #categories {
-      text-align: center;
-      padding: 50px;
+        text-align: center;
+        padding: 50px;
     }
 
     .category-box {
-        background-color: #f8f9fa; 
+        background-color: #f8f9fa;
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 20px;
@@ -34,28 +34,29 @@
     .image-container {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .image-container figure {
-        flex: 1;
+        flex: 0 0 calc(50% - 20px);
         text-align: center;
+        margin-bottom: 20px;
     }
 
-    .left-float {
+    .left-float, .right-float {
         width: 100%;
-        max-width: 600px;
-    }
-
-    .right-float {
-        width: 100%;
-        max-width: 550px;
+        max-width: 100%;
     }
       
     .image-caption {
-        clear: both;
         text-align: center;
         margin-top: 10px;
         text-decoration: underline;
+    }
+
+    .description {
+        text-align: center;
+        font-style: italic;
     }
     </style>
 
@@ -86,23 +87,36 @@
     </ul>
 
     <section id="categories">
-      <div class="category-box">
-        <h2>Categories</h2>
-      </div>
-      <h1>Choose a category you'd like to explore!</h1>
-      <br>
-      <div class="image-container">
+        <div class="category-box">
+            <h2>Categories</h2>
+        </div>
+        <h1>Choose a category you'd like to explore!</h1>
+        <br>
+        <div class="image-container">
         <figure>
-            <img alt="Vinyl" src="vinyl.jpg" width="600" height="400" class="left-float" alt="Floating Image">
+            <img alt="Vinyl" src="vinyl.jpg" class="left-float" alt="Floating Image">
             <figcaption class="image-caption">Vinyl</figcaption>
+            <p class="description">Explore our vinyl collection with a wide range of genres and artists.</p>
         </figure>
         
         <figure>
-            <img alt="Merch" src="merch.jpg" width="550" height="400" class="right-float" alt="FLoating Image">
+            <img alt="Merch" src="merch.jpg" class="right-float" alt="FLoating Image">
             <figcaption class="image-caption">Merch</figcaption>
+            <p class="description">Check out our merchandise with various clothing items you can choose from.</p>
+        </figure>
+
+        <figure>
+            <img alt="CDs" src="CDs.jpg" class="left-float" alt="Floating Image">
+            <figcaption class="image-caption">CDs</figcaption>
+            <p class="description">Browse our CD collection featuring a diverse selection of albums and artists.</p>
+        </figure>
+
+        <figure>
+            <img alt="Cassette" src="cassette.webp" class="right-float" alt="Floating Image">
+            <figcaption class="image-caption">Cassette</figcaption>
+            <p class="description">Take a look at our cassette collection, featuring classic and modern releases.</p>
         </figure>
         </div>
     </section>
-
   </body>
 </html>
