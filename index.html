@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -74,9 +76,14 @@
       </video>
     </div>
     <div class="featured-header">
-      <h2>Featured vinyls</h2>
+      <h2>Featured vinyl</h2>
+      <hr class="vertical-hr">
+      <div class="view-text">
+        <h6><a><i><u>View More</u></i></a></h6>
+      </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    
+    <div class="row row-cols-1 row-cols-md-5 g-4">
       <div class="col">
         <div class="card h-100">
           <img
@@ -127,6 +134,43 @@
           </div>
         </div>
       </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="images/gardenalbum.jpeg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">I Need to Start a Garden</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This card has even longer content
+              than the first to show that equal height action.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="images/Soccer_Mommy_-_Color_Theory.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Color Theory</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This card has even longer content
+              than the first to show that equal height action.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container-fluid bg-dark text-center py-5" style="width: 100%;  min-height: 400px;">
+      <button class="btn btn-primary btn-lg" style="margin-top: 140px;">Want us to give you personalized picks?</button>
     </div>
   </body>
 </html>
