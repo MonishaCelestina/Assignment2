@@ -10,9 +10,9 @@ const TRACKS =
   "https://api.spotify.com/v1/recommendations?seed_artists=5cIc3SBFuBLVxJz58W2tU9&limit=10";
 
 const list = document.getElementById("list");
-const cover = document.getElementById("cover");
 
 function authorize() {
+  // constructing spotify authorization url
   let url = AUTHORIZE;
   url += "?client_id=" + client_id;
   url += "&response_type=code";
@@ -26,12 +26,6 @@ function authorize() {
 function onPageLoad() {
   document.addEventListener("DOMContentLoaded", function () {
     console.log("Page loaded!");
-
-    const cover = document.getElementById("cover");
-    if (!cover) {
-      console.error("Cover element not found!");
-      return;
-    }
   });
 }
 
@@ -42,6 +36,7 @@ function handleRedirect() {
 }
 
 function getCode() {
+  // getting code from url
   const queryString = window.location.search;
   return queryString.length > 0
     ? new URLSearchParams(queryString).get("code")
@@ -49,6 +44,7 @@ function getCode() {
 }
 
 function fetchAccessToken(code) {
+  // get authorization code
   const body = new URLSearchParams({
     grant_type: "authorization_code",
     code,
@@ -81,6 +77,7 @@ function refreshAccessToken() {
 }
 
 function handleAuthResponse(response) {
+  ///checks if authorization is successful
   if (response.status == 200) {
     response.json().then((data) => {
       if (data.access_token != undefined) {
@@ -99,10 +96,11 @@ function handleAuthResponse(response) {
 
 function getSongs() {
   console.log("getSongs called");
-  callApi("GET", TRACKS, null, handleSongResponse);
+  callApi("GET", TRACKS, null, handleSongResponse); // get songinfo
 }
 
 function callApi(method, url, body, callback) {
+  // make api request
   const access_token = localStorage.getItem("access_token");
   console.log("Access Token:", access_token);
 
@@ -197,14 +195,6 @@ function songlist(data) {
   console.log("Inside songlist function");
   console.log(data);
   removeItem();
-
-  // Check if the 'cover' element exists due to error
-  if (cover) {
-    cover.classList.remove("hide");
-  } else {
-    console.error("Cover element not found.");
-    return;
-  }
 
   const list = document.getElementById("list");
 
