@@ -8,6 +8,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Update the product details container with the retrieved details
   updateProductDetails(productDetails);
+
+  // Quantity Bar Script
+  const quantityInput = document.getElementById("quantity-input");
+  const increaseBtn = document.getElementById("increase-btn");
+  const decreaseBtn = document.getElementById("decrease-btn");
+
+  increaseBtn.addEventListener("click", function () {
+    var currentQuantity = parseInt(quantityInput.value);
+    quantityInput.value = currentQuantity + 1;
+  });
+
+  decreaseBtn.addEventListener("click", function () {
+    var currentQuantity = parseInt(quantityInput.value);
+    if (currentQuantity > 1) {
+      quantityInput.value = currentQuantity - 1;
+    }
+  });
 });
 
 function getProductDetails(productId) {
