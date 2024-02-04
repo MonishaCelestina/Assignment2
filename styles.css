@@ -60,3 +60,13 @@
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
   pointer-events: none; /* Make the overlay transparent to mouse events */
 }
+
+.col-sm {
+  /* Optional: If you want to center the animation horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Adjust this value to move the animation to the right */
+  margin-left: 50px;
+}
