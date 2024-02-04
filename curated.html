@@ -64,29 +64,27 @@
     </nav>
 
     <div
-      class="d-flex align-items-center justify-content-center"
-      style="height: 70vh"
+      class="d-flex align-items-center justify-content-center curated-heading"
+      style="
+        height: 70vh;
+        background-image: url('images/store.jpg');
+        background-size: cover;
+        position: relative;
+      "
     >
-      <dotlottie-player
-        src="https://lottie.host/4d221221-1159-4e34-8186-a8229164e560/PVZ1uh0Pzg.json"
-        background="transparent"
-        speed="1"
-        style="width: 300px; height: 300px"
-        loop
-        autoplay
-      ></dotlottie-player>
-    </div>
-
-    <div class="curated-heading text-center">
-      <h2>Generate Curated Picks for You!</h2>
+      <div class="dark-overlay"></div>
+      <h2 style="z-index: 1; color: #fff">Generate Curated Picks for You!</h2>
+      <div class="connect-button">
+        <button class="login-btn" onclick="authorize()">
+          Authorize Spotify
+        </button>
+      </div>
     </div>
     <div
       class="d-flex align-items-center justify-content-center"
-      style="height: 50vh"
-    ></div>
-
-    <div class="connect-button">
-      <button class="login-btn" onclick="authorize()">Authorize Spotify</button>
+      style="height: 50vh; background-color: black"
+    >
+      <h2>About</h2>
     </div>
   </body>
 </html>
