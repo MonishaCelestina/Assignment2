@@ -23,22 +23,54 @@
     ></script>
   </head>
 
-  <body onload="onPageLoad()">
-    <header>
-      <h1>Welcome to your personalized recommendations</h1>
-    </header>
-
+  <body onload="onPageLoad()" style="background-color: black">
     <nav class="toggle">
-      <div class="singles">
-        <button id="singles-btn" class="singles-btn" onclick="getSongs()">
-          Top Songs
-        </button>
-      </div>
+      <div class="singles"></div>
     </nav>
+
+    <div class="first-section">
+      <img src="images/landscape.gif" />
+      <div class="overlay-text">
+        <h1 style="color: white">Personalized Recommendations</h1>
+      </div>
+      <button id="singles-btn" class="singles-btn" onclick="getSongs()">
+        Top Songs
+      </button>
+    </div>
 
     <section id="API" class="API">
       <div class="list">
-        <ol id="list" class="results"></ol>
+        <ol id="list" class="results">
+          <div id="carouselExample" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- List items will be dynamically added here -->
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExample"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExample"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </ol>
       </div>
     </section>
 
