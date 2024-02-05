@@ -11,49 +11,167 @@
     />
     <script src="https://kit.fontawesome.com/3537cee49b.js" crossorigin="anonymous"></script>
     <style>
-        #contact {
-        text-align: center;
-        padding: 50px;
+      body {
+      background-image: url('images/vinyl.avif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
     }
 
-    .category-box {
-        background-color: #f8f9fa;
-        padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 20px;
+    #content-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .navbar-container {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .nav-item {
+      margin-right: 10px; 
+    }
+
+    .nav-form {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-form input {
+      width: 70%; 
+      padding: 10px;
+      margin-right: 10px; 
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+
+    .nav-form button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    }
+
+    ul.nav {
+      display: flex;
+      justify-content: flex-end; 
+      margin: 0;
+      padding: 0;
+    }
+
+    li.nav-item {
+      list-style: none;
+      margin-left: 15px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
     </style>
 
     <title>Document</title>
 </head>
 <body>
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="index.html">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="Categories.html">Categories</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active">Contact</a>
-    </li>
-    <li class="nav-item">
-      <form>
-        <input type="text" name="search" id="sbar" placeholder-="search" />
-        <button type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-    </li>
-  </ul>
+  <div id="#content-container">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Categories.html">Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active">Contact</a>
+      </li>
+      <li class="nav-item">
+        <form class="nav-form">
+          <input type="text" name="search" id="sbar" placeholder-="search" />
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </li>
+    </ul>
+  </div>
   
   <section id="contact">
-    <div class="category-box">
-        <h2>Contact</h2>
-    </div>
+    <div class="form-container">
+      <h2>Contact Us!</h2>
+      <form>
+          <div class="form-group">
+              <input type="text" name="name" placeholder="Name" required />
+          </div>
+          <div class="form-group">
+              <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone" />
+          </div>
+          <div class="form-group">
+              <textarea name="message" placeholder="Message" rows="8" cols="50" required></textarea>
+          </div>
+          <div class="form-group">
+              <button type="submit">Submit</button>
+          </div>
+      </form>
+  </div>
+  
+<section id="contact">
+    <div class="form-container">
+      <h2>Contact Us!</h2>
+      <form>
+          <div class="form-group">
+              <input type="text" name="name" placeholder="Name" required />
+          </div>
+          <div class="form-group">
+              <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone" />
+          </div>
+          <div class="form-group">
+              <textarea name="message" placeholder="Message" rows="8" cols="50" required></textarea>
+          </div>
+          <div class="form-group">
+              <button type="submit">Submit</button>
+          </div>
+      </form>
+  </div>
 
 </section>
 </body>
