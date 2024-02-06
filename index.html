@@ -23,11 +23,21 @@
         width: 100%;
         overflow: hidden;
       }
-
+      .video-text{
+        position: absolute;
+        top: 100%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 2;
+        font-size: 24px;
+      }
       video {
         width: 100%;
         height: auto;
       }
+      
     </style>
   </head>
   <body>
@@ -38,22 +48,19 @@
         <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
+            <a class="nav-link" href="index.html" style="color: white;">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="vinyls.html" style="color: white;">Vinyls</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Categories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="Contact.html" style="color: white;">Contact</a>
           </li>
           <li class="nav-item">
             <form class="d-flex">
               <input type="text" name="search" id="sbar" placeholder="Search" />
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-search"></i>
+              <button type="submit" class="btn btn-primary" >
+                <i class="fas fa-search" ></i>
               </button>
             </form>
           </li>
@@ -74,6 +81,9 @@
           type="video/mp4"
         />
       </video>
+            <div class="video-text">
+        <h1><strong>MoniSar Records</strong></h1>
+      </div>
     </div>
     <div class="featured-header">
       <h2>Featured vinyl</h2>
@@ -172,5 +182,67 @@
     <div class="container-fluid bg-dark text-center py-5" style="width: 100%; min-height: 400px;">
       <a href="curated.html" class="btn btn-primary btn-lg" style="margin-top: 140px;">Want us to give you personalized picks?</a>
     </div>
+    <footer class="text-center bg-body-tertiary">
+      <div class="container pt-4">
+        <section class="mb-4">
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-body" href="#">MoniSar.com</a>
+      </div>
+    </footer>
+    Buttons
   </body>
 </html>
