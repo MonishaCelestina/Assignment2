@@ -21,21 +21,121 @@
       src="https://kit.fontawesome.com/3537cee49b.js"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      function hideFirstSection() {
+        // Hide the first animation
+        const firstAnimationPlayer = document.getElementById(
+          "first-animation-player"
+        );
+        firstAnimationPlayer.style.display = "none";
+
+        // Hide the personalized recommendations
+        const personalizedRecommendations =
+          document.querySelector(".overlay-text");
+        personalizedRecommendations.style.display = "none";
+
+        // Hide the "Top Songs" button
+        const topSongsButton = document.getElementById("singles-btn");
+        topSongsButton.style.display = "none";
+
+        //  play the second animation
+        const secondAnimationPlayer = document.getElementById(
+          "second-animation-player"
+        );
+        const analyzingText = document.createElement("h2");
+        analyzingText.textContent = "Analyzing music taste...";
+        analyzingText.style.color = "white";
+        analyzingText.style.textAlign = "center";
+        analyzingText.style.position = "relative"; //  position to relative to allow animation
+        analyzingText.style.animation = "wave 2s infinite"; // applying the wave animation
+        document.body.appendChild(analyzingText);
+        secondAnimationPlayer.style.display = "block";
+        secondAnimationPlayer.play();
+
+        // fetching top songs
+        setTimeout(getSongs, 1000);
+      }
+    </script>
   </head>
   <body onload="onPageLoad()" style="background-color: black">
-    <nav class="toggle">
-      <div class="singles"></div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" style="color: white">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vinyls.html" style="color: white"
+              >Vinyls</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contact.html" style="color: white"
+              >Contact</a
+            >
+          </li>
+          <li class="nav-item">
+            <form class="d-flex">
+              <input type="text" name="search" id="sbar" placeholder="Search" />
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!-- first-section -->
-    <div class="first-section" style="width: 100%">
-      <img src="images/moon-retro.jpg" />
+    <div
+      class="first-section"
+      style="width: 100%; height: 80%; position: relative"
+    >
+      <script
+        src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+        type="module"
+      ></script>
+      <script
+        src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+        type="module"
+      ></script>
+
+      <dotlottie-player
+        id="first-animation-player"
+        src="https://lottie.host/5a19cd72-64ea-49d4-8403-39c0567c3da5/8FKJ3ZWQ4R.json"
+        background="transparent"
+        speed="1"
+        style="width: 100%; height: 100%"
+        loop
+        autoplay
+      >
+      </dotlottie-player>
+
       <div class="overlay-text">
         <h1 style="color: white">Personalized Recommendations</h1>
       </div>
-      <button id="singles-btn" class="singles-btn" onclick="getSongs()">
+      <button id="singles-btn" class="singles-btn" onclick="hideFirstSection()">
         Top Songs
       </button>
+
+      <script
+        src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+        type="module"
+      ></script>
+      <dotlottie-player
+        id="second-animation-player"
+        src="https://lottie.host/725b35aa-15c6-4c25-a1c0-376f717a16e0/qZdTrOOVtV.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px; display: none"
+        loop
+        autoplay
+      >
+      </dotlottie-player>
     </div>
     <br />
 
