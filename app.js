@@ -123,6 +123,7 @@ function handleSongResponse(response) {
 
       if (data.tracks && Array.isArray(data.tracks)) {
         songlist(data);
+        hideSecondAnimation();
       } else {
         console.error("Invalid or missing data.tracks in the response:", data);
       }
@@ -135,9 +136,21 @@ function handleSongResponse(response) {
   }
 }
 
+function hideSecondAnimation() {
+  const secondAnimationPlayer = document.getElementById(
+    "second-animation-player"
+  );
+  if (secondAnimationPlayer) {
+    secondAnimationPlayer.style.display = "none";
+  } else {
+    console.error("Second animation player not found.");
+  }
+}
+
 function createListItem(songData) {
   const card = document.createElement("div");
   card.classList.add("card", "grid-item");
+  card.style.backgroundColor = "white";
 
   const img = document.createElement("img");
   img.classList.add("card-img-top", "resize");
@@ -153,20 +166,14 @@ function createListItem(songData) {
   title.classList.add("card-title");
   title.textContent = songData.name;
   cardBody.appendChild(title);
-
   const text = document.createElement("p");
   text.classList.add("card-text");
+
   text.textContent = `${songData.album.name} . ${songData.artists[0].name}`;
   cardBody.appendChild(text);
 
-  const link = document.createElement("a");
-  link.classList.add("btn", "btn-primary");
-  link.href = songData.external_urls.spotify;
-  link.target = "_blank";
-  link.textContent = "Listen on Spotify";
-  cardBody.appendChild(link);
-
   const addtocart = document.createElement("a");
+  addtocart.id = "add-to-cart-button";
   addtocart.classList.add("btn", "btn-primary");
   addtocart.href = "product.js";
   addtocart.target = "_blank";
