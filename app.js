@@ -4,15 +4,12 @@ const client_secret = "5acd2502954048fdb552c5a145f123da";
 
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const TOKEN = "https://accounts.spotify.com/api/token";
-const ARTISTS =
-  "https://api.spotify.com/v1/me/top/artists?offset=0&limit=10&time_range=long_term";
 const TRACKS =
   "https://api.spotify.com/v1/recommendations?seed_artists=5cIc3SBFuBLVxJz58W2tU9&limit=10";
 
 const list = document.getElementById("list");
 
 function authorize() {
-  // constructing spotify authorization url
   let url = AUTHORIZE;
   url += "?client_id=" + client_id;
   url += "&response_type=code";
@@ -36,7 +33,6 @@ function handleRedirect() {
 }
 
 function getCode() {
-  // getting code from url
   const queryString = window.location.search;
   return queryString.length > 0
     ? new URLSearchParams(queryString).get("code")
@@ -44,7 +40,6 @@ function getCode() {
 }
 
 function fetchAccessToken(code) {
-  // get authorization code
   const body = new URLSearchParams({
     grant_type: "authorization_code",
     code,
@@ -58,7 +53,6 @@ function fetchAccessToken(code) {
 
 function refreshAccessToken() {
   const refresh_token = localStorage.getItem("refresh_token");
-  console.log("Refresh Token:", refresh_token);
 
   if (!refresh_token) {
     console.error("Refresh token is missing.");
@@ -77,7 +71,6 @@ function refreshAccessToken() {
 }
 
 function handleAuthResponse(response) {
-  ///checks if authorization is successful
   if (response.status == 200) {
     response.json().then((data) => {
       if (data.access_token != undefined) {
@@ -96,13 +89,11 @@ function handleAuthResponse(response) {
 
 function getSongs() {
   console.log("getSongs called");
-  callApi("GET", TRACKS, null, handleSongResponse); // get songinfo
+  callApi("GET", TRACKS, null, handleSongResponse);
 }
 
 function callApi(method, url, body, callback) {
-  // make api request
   const access_token = localStorage.getItem("access_token");
-  console.log("Access Token:", access_token);
 
   const headers = {
     "Content-Type": "application/x-www-form-urlencoded",
@@ -115,8 +106,6 @@ function callApi(method, url, body, callback) {
   if (method === "POST") {
     headers["Authorization"] = "Basic " + btoa(client_id + ":" + client_secret);
   }
-
-  console.log("Headers:", headers);
 
   fetch(url, {
     method: method,
@@ -132,16 +121,8 @@ function handleSongResponse(response) {
     response.json().then((data) => {
       console.log("Handling song response:", data);
 
-      // checking if the tracks are in an array
       if (data.tracks && Array.isArray(data.tracks)) {
         songlist(data);
-
-        // Append the created list items to the list element
-        const listElement = document.getElementById("list");
-        for (let i = 0; i < data.tracks.length; i++) {
-          const listItem = createListItem(data.tracks[i]);
-          listElement.appendChild(listItem);
-        }
       } else {
         console.error("Invalid or missing data.tracks in the response:", data);
       }
@@ -155,9 +136,8 @@ function handleSongResponse(response) {
 }
 
 function createListItem(songData) {
-  // creating list item for the song
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", "grid-item");
 
   const img = document.createElement("img");
   img.classList.add("card-img-top", "resize");
@@ -186,6 +166,13 @@ function createListItem(songData) {
   link.textContent = "Listen on Spotify";
   cardBody.appendChild(link);
 
+  const addtocart = document.createElement("a");
+  addtocart.classList.add("btn", "btn-primary");
+  addtocart.href = "product.js";
+  addtocart.target = "_blank";
+  addtocart.textContent = "Add to Cart";
+  cardBody.appendChild(addtocart);
+
   card.appendChild(cardBody);
 
   return card;
@@ -196,16 +183,16 @@ function songlist(data) {
   console.log(data);
   removeItem();
 
-  const list = document.getElementById("list");
+  const listElement = document.getElementById("list");
+  listElement.classList.add("list");
 
-  // Check if data.tracks are in an array
   if (data.tracks && Array.isArray(data.tracks)) {
-    console.log("List element found:", list);
+    console.log("List element found:", listElement);
 
     for (let i = 0; i < data.tracks.length; i++) {
       console.log("Processing item:", data.tracks[i]);
       const listItem = createListItem(data.tracks[i]);
-      list.appendChild(listItem);
+      listElement.appendChild(listItem);
     }
   } else {
     console.error("Tracks not found or is not an array in data.");
