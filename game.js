@@ -127,3 +127,74 @@ document.addEventListener("DOMContentLoaded", function () {
   nextQuestionBtn.addEventListener("click", nextQuestion);
   setCount();
 });
+
+// loading bar 
+
+const loadingBar = document.getElementById("loading-bar");
+const loadingBarFill = document.getElementById("loading-bar-fill");
+
+function showLoadingBar() {
+  loadingBar.style.display = "block";
+  updateLoadingBar(0);
+}
+
+function hideLoadingBar() {
+  loadingBar.style.display = "none";
+}
+
+function updateLoadingBar(progress) {
+  loadingBarFill.style.width = `${progress}%`;
+}
+
+
+function loadQuestion() {
+  showLoadingBar(); // Show loading bar before fetching question
+  fetchQuestionFromAPI().then(showQuestion).finally(() => {
+    hideLoadingBar();
+    document.querySelector('.wrapper').classList.add('quiz-active');
+});
+}
+
+function nextQuestion() {
+  showLoadingBar(); // Show loading bar before loading next question
+  checkBtn.disabled = true;
+  nextQuestionBtn.disabled = true;
+  if (askedCount < totalQuestion) {
+    setTimeout(loadQuestion, 300);
+    resultElement.innerHTML = "";
+  } else {
+    resultElement.innerHTML = `<p>Your score is ${correctScore}.</p>`;
+    playAgainBtn.style.display = "block";
+    checkBtn.style.display = "none";
+    nextQuestionBtn.style.display = "none";
+    hideLoadingBar(); // Hide loading bar after the quiz is finished
+  }
+}
+
+// Add these lines inside the 'checkAnswer' function
+function checkAnswer() {
+  showLoadingBar(); // Show loading bar before checking the answer
+  nextQuestionBtn.disabled = false;
+  checkBtn.disabled = true;
+  const selectedOption = optionsElement.querySelector(".selected");
+
+  if (selectedOption) {
+    const selectedAnswer = selectedOption.querySelector("span").textContent;
+    const isCorrect = selectedAnswer === correctAnswer;
+
+    resultElement.innerHTML = `<p><i class="fas ${
+      isCorrect ? "fa-check" : "fa-times"
+    }"></i>${isCorrect ? "Correct" : "Incorrect"} Answer!</p>`;
+
+    if (!isCorrect) {
+      resultElement.innerHTML += `<small><b>Correct Answer:</b> ${correctAnswer}</small>`;
+    }
+
+    correctScore += isCorrect ? 1 : 0;
+    askedCount++;
+    setCount();
+    hideLoadingBar(); // Hide loading bar after checking the answer
+
+    document.getElementById('result-container').classList.add('show');
+  }
+}
