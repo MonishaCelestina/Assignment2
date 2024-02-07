@@ -86,10 +86,21 @@
               </button>
             </form>
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="shopping.html"
+              style="color: white"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasResponsive"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="quantity">0</span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
-
     <!-- first-section -->
     <div
       class="first-section"
@@ -149,5 +160,46 @@
       integrity="sha384-dZl4l7iXWNAKdiLq3GXeEe0z33zx75n4l25dkdFckw6c9/cuo3n3MEq2ok2aSzvZ"
       crossorigin="anonymous"
     ></script>
+    <script>
+      window.onload = function () {
+        localStorage.removeItem("cartItems");
+      };
+      // Add event listener to "Add to Cart" button
+      document
+        .getElementById("add-to-cart-btn")
+        .addEventListener("click", function () {
+          // Retrieve product details
+          var productTitle = document.getElementById("product-title").innerText;
+          var productDescription = document.getElementById(
+            "product-description"
+          ).innerText;
+          var productPrice = document.getElementById("product-price").innerText;
+          var productImage = document
+            .getElementById("product-image")
+            .getAttribute("src");
+
+          // Create an object to store product details
+          var product = {
+            title: productTitle,
+            description: productDescription,
+            price: productPrice,
+            image: productImage,
+          };
+
+          // Retrieve existing cart items from local storage or initialize an empty array
+          var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+          // Add the new product to the cart items array
+          cartItems.push(product);
+
+          // Update the cart quantity displayed in the navbar
+          var cartQuantityElement = document.getElementById("cart-quantity");
+          var cartQuantity = parseInt(cartQuantityElement.innerText);
+          cartQuantityElement.innerText = cartQuantity + 1;
+
+          // Store the updated cart items array back in local storage
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        });
+    </script>
   </body>
 </html>
