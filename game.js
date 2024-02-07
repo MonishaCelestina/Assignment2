@@ -115,8 +115,13 @@ function shuffle(array) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  const gameContainer = document.getElementById("game-container");
+  const welcomeMessage = document.getElementById("welcome-message");
+  gameContainer.style.display = "none";
   playButton.addEventListener("click", function () {
     playButton.style.display = "none";
+    welcomeMessage.style.display = "none";
+    gameContainer.style.display = "block";
     loadQuestion();
     checkBtn.style.display = "block";
     nextQuestionBtn.style.display = "block";
@@ -198,3 +203,5 @@ function checkAnswer() {
     document.getElementById('result-container').classList.add('show');
   }
 }
+
+
