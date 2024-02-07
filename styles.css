@@ -16,3 +16,7 @@
 .view-text {
   margin-left: 15px;
 }
+
+#cart i:hover {
+  color: gray;
+}
