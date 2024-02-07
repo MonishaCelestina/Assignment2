@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .cart-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .cart-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 10px;
+        width: 600px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .cart-item img {
+        max-width: 100px;
+        margin-right: 20px;
+      }
+      .cart-item p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Shopping Cart</h1>
+      <div class="cart-items"></div>
+    </div>
+
+    <script>
+      // Retrieve cart items from local storage
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      // Group items by title and calculate quantity
+      const groupedCartItems = cartItems.reduce((acc, item) => {
+        const existingItem = acc.find((i) => i.title === item.title);
+        if (existingItem) {
+          existingItem.quantity += item.quantity;
+        } else {
+          acc.push({ ...item });
+        }
+        return acc;
+      }, []);
+
+      // displaying cart items on the page
+      const cartItemsContainer = document.querySelector(".cart-items");
+
+      // checking if there are items in the cart
+      if (groupedCartItems.length === 0) {
+        cartItemsContainer.innerHTML = "<p>No items in the cart</p>";
+      } else {
+        // looping through each cart item
+        groupedCartItems.forEach((item) => {
+          const cartItemElement = document.createElement("div");
+          cartItemElement.classList.add("cart-item");
+          cartItemElement.innerHTML = `
+                <img src="${item.imageUrl}" alt="Product Image">
+                <div>
+                    <h3>${item.title} (${item.quantity})</h3>
+                    <p><strong>Description:</strong> ${item.description}</p>
+                    <p><strong>Price:</strong> $${item.price}</p>
+                </div>
+            `;
+          cartItemsContainer.appendChild(cartItemElement);
+        });
+      }
+    </script>
+  </body>
+</html>
