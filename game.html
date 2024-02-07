@@ -13,8 +13,41 @@
     <link rel="stylesheet" href="game.css" />
   </head>
   <body class="flex">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="game.html">Trivia!</a>
+          </li>
+          <li class="nav-item">
+            <form class="d-flex">
+              <input type="text" name="search" id="sbar" placeholder="Search" />
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
     <div class="wrapper">
       <div class="quiz-container">
+        <div id="loading-bar" class="progress" style="display: none;">
+          <div id="loading-bar-fill" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
         <div class="quiz-head">
           <h1 class="quiz-title">Music Trivia</h1>
           <div class="quiz-score flex">
@@ -25,16 +58,18 @@
           <h2 class="quiz-question" id="question"></h2>
           <ul class="quiz-options list-group"></ul>
           <div id="result" class="mt-3"></div>
-          <button type="button" id="next-question" class="btn btn-primary">
-            Next
-          </button>
         </div>
         <div class="quiz-foot">
           <button type="button" id="play-button" class="btn btn-success">
             Play
           </button>
+          <br>
           <button type="button" id="check-answer" class="btn btn-primary">
             Check Answer
+          </button>
+          <br>
+          <button type="button" id="next-question" class="btn btn-primary">
+            Next
           </button>
           <button type="button" id="play-again" class="btn btn-success">
             Retry
