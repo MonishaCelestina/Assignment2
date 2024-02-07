@@ -104,30 +104,35 @@
     <title>Document</title>
 </head>
 <body>
-  <div id="#content-container">
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Categories.html">Categories</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active">Contact</a>
-      </li>
-      <li class="nav-item">
-        <form class="nav-form">
-          <input type="text" name="search" id="sbar" placeholder-="search" />
-          <button type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </li>
-    </ul>
-  </div>
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div
+      class="container-fluid d-flex justify-content-between align-items-center"
+    >
+      <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="game.html">Trivia!</a>
+        </li>
+        <li class="nav-item">
+          <form class="d-flex">
+            <input type="text" name="search" id="sbar" placeholder="Search" />
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </nav>
   
   <section id="contact">
     <div class="form-container">
