@@ -51,7 +51,7 @@
         <div class="quiz-head">
           <h1 class="quiz-title">Music Trivia</h1>
           <div class="quiz-score flex">
-            <span id="correct-score"></span>/<span id="total-question"></span>
+            <span id="correct-score">0</span>/<span id="total-question">0</span>
           </div>
         </div>
         <div class="quiz-body" id="game-container">
@@ -60,18 +60,19 @@
           <div id="result" class="mt-3"></div>
         </div>
         <div class="quiz-foot">
+          <div id="welcome-message" class="quiz-question">Welcome to Music Trivia!</div>
           <button type="button" id="play-button" class="btn btn-success">
             Play
           </button>
           <br>
-          <button type="button" id="check-answer" class="btn btn-primary">
+          <button type="button" id="check-answer" class="btn btn-primary" style="display: none;">
             Check Answer
           </button>
           <br>
-          <button type="button" id="next-question" class="btn btn-primary">
+          <button type="button" id="next-question" class="btn btn-primary" style="display: none;">
             Next
           </button>
-          <button type="button" id="play-again" class="btn btn-success">
+          <button type="button" id="play-again" class="btn btn-success" style="display: none;">
             Retry
           </button>
         </div>
