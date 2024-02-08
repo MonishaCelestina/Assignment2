@@ -231,6 +231,23 @@ body {
     height: 90%;
     padding: 1.5rem 1rem 3rem 1rem;
     border-radius: 0;
+    margin: 0 auto;
+  }
+
+  .quiz-score {
+    width: auto;
+  }
+
+  .quiz-options {
+    width: 100%;
+  }
+
+  .quiz-options li {
+    width: 100%;
+  }
+
+  .quiz-question {
+    margin-bottom: 15px;
   }
 
   .quiz-foot button {
