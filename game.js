@@ -53,46 +53,9 @@ function selectOption() {
   });
 }
 
-function checkAnswer() {
-  nextQuestionBtn.disabled = false; // will enable the next question button
-  checkBtn.disabled = true; //disabling check button
-  const selectedOption = optionsElement.querySelector(".selected");
-
-  if (selectedOption) {
-    const selectedAnswer = selectedOption.querySelector("span").textContent;
-    const isCorrect = selectedAnswer === correctAnswer;
-
-    resultElement.innerHTML = `<p><i class="fas ${
-      isCorrect ? "fa-check" : "fa-times"
-    }"></i>${isCorrect ? "Correct" : "Incorrect"} Answer!</p>`; // checkmark if question is correct and cross if its wrong
-
-    if (!isCorrect) {
-      resultElement.innerHTML += `<small><b>Correct Answer:</b> ${correctAnswer}</small>`;
-    }
-
-    correctScore += isCorrect ? 1 : 0;
-    askedCount++;
-    setCount();
-  }
-}
-
 function setCount() {
   totalQuestionElement.textContent = totalQuestion; // showing total no of qns
   correctScoreElement.textContent = correctScore; // show current score
-}
-
-function nextQuestion() {
-  checkBtn.disabled = true;
-  nextQuestionBtn.disabled = true;
-  if (askedCount < totalQuestion) {
-    setTimeout(loadQuestion, 300);
-    resultElement.innerHTML = "";
-  } else {
-    resultElement.innerHTML = `<p>Your score is ${correctScore}.</p>`;
-    playAgainBtn.style.display = "block";
-    checkBtn.style.display = "none";
-    nextQuestionBtn.style.display = "none";
-  }
 }
 
 function restartQuiz() {
@@ -103,6 +66,18 @@ function restartQuiz() {
   setCount();
   resultElement.innerHTML = "";
   loadQuestion();
+
+  const endSection = document.getElementById("end-section");
+  const discountValue = document.getElementById("discount-value");
+  const thankYouMessage = document.getElementById("thank-you-message");
+
+  endSection.style.display = "none";
+
+  if (askedCount >= totalQuestion) {
+    endSection.style.display = "block";
+    thankYouMessage.textContent = "Thank you for your participation!";
+    discountValue.textContent = generateDiscountCode();
+  }
 }
 
 function HTMLDecode(textString) {
@@ -173,14 +148,21 @@ function nextQuestion() {
     checkBtn.style.display = "none";
     nextQuestionBtn.style.display = "none";
     hideLoadingBar(); // Hide loading bar after the quiz is finished
+
+    displayEndSection();
   }
+}
+
+function displayEndSection() {
+  const endSection = document.getElementById("end-section");
+  endSection.style.display = "block";
 }
 
 // Add these lines inside the 'checkAnswer' function
 function checkAnswer() {
-  showLoadingBar(); // Show loading bar before checking the answer
-  nextQuestionBtn.disabled = false;
-  checkBtn.disabled = true;
+  showLoadingBar(); 
+  nextQuestionBtn.disabled = false; // will enable the next question button
+  checkBtn.disabled = true; //disabling check button
   const selectedOption = optionsElement.querySelector(".selected");
 
   if (selectedOption) {
@@ -189,7 +171,7 @@ function checkAnswer() {
 
     resultElement.innerHTML = `<p><i class="fas ${
       isCorrect ? "fa-check" : "fa-times"
-    }"></i>${isCorrect ? "Correct" : "Incorrect"} Answer!</p>`;
+    }"></i>${isCorrect ? "Correct" : "Incorrect"} Answer!</p>`; // checkmark if question is correct and cross if its wrong
 
     if (!isCorrect) {
       resultElement.innerHTML += `<small><b>Correct Answer:</b> ${correctAnswer}</small>`;
@@ -198,10 +180,23 @@ function checkAnswer() {
     correctScore += isCorrect ? 1 : 0;
     askedCount++;
     setCount();
-    hideLoadingBar(); // Hide loading bar after checking the answer
+    hideLoadingBar(); // Hideloading bar after checking answer
 
     document.getElementById('result-container').classList.add('show');
   }
+
+  function generateDiscountCode() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let discountCode = '';
+  
+    for (let i = 0; i < 8; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      discountCode += characters.charAt(randomIndex);
+    }
+  
+    return discountCode;
+  }
+  
 }
 
 
