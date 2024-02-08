@@ -292,3 +292,19 @@ body {
     width: 100%;
   }
 }
+
+#end-section {
+  text-align: center;
+  font-size: 100%;
+  margin-top: -70px;
+}
+
+#end-section p {
+  color: #fff; /* Adjust the color as needed */
+  border: none;
+  line-height: 0%;
+}
+
+#end-section strong {
+  font-weight: 600;
+}
