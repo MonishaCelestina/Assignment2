@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://kit.fontawesome.com/3537cee49b.js"
       crossorigin="anonymous"
@@ -98,64 +99,78 @@
         class="container-fluid d-flex justify-content-between align-items-center"
       >
         <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
-        <ul class="nav">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDarkDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="navbarDarkDropdownMenuLink"
-            >
-              <li><a class="dropdown-item" href="game.html">Trivia</a></li>
-              <li>
-                <a class="dropdown-item" href="curated.html"
-                  >Personalized Recommendations</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html" style="color: white">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vinyls.html" style="color: white"
-              >Vinyls</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Contact.html" style="color: white"
-              >Contact</a
-            >
-          </li>
-          <li class="nav-item">
-            <form class="d-flex">
-              <input type="text" name="search" id="sbar" placeholder="Search" />
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="shopping.html"
-              style="color: white"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasResponsive"
-            >
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="quantity">0</span>
-            </a>
-          </li>
-        </ul>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse text-center justify-content-center"
+          id="navbarNav"
+          style="margin-right: 40px"
+        >
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fs-5 me-3"
+                href="#"
+                id="navbarDarkDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Discover
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="navbarDarkDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="game.html">Trivia</a></li>
+                <li>
+                  <a class="dropdown-item" href="curated.html"
+                    >Personalized Recommendations</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-5 me-3"
+                href="index.html"
+                style="color: white"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-5 me-3"
+                href="vinyls.html"
+                style="color: white"
+                >Vinyls</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-5 me-3"
+                href="Contact.html"
+                style="color: white"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item fs-5 me-3">
+              <a class="nav-link" href="shopping.html" style="color: white">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-quantity" class="quantity">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -171,9 +186,46 @@
         <button id="apply-discount-button" onclick="applyDiscount()">
           Apply Discount
         </button>
-      </div>
-    </div>
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 
+        <script>
+          // Define the checkout function outside the DOMContentLoaded event
+          function checkout() {
+            // Hide the checkout button
+            const checkoutButton = document.getElementById("checkout-button");
+            checkoutButton.style.display = "none";
+    
+            // Display the checkout animation
+            const dotLottiePlayer = document.getElementById("checkout-animation");
+            dotLottiePlayer.style.display = "block";
+    
+            // Display an alert and redirect after a delay (adjust the delay as needed)
+            setTimeout(function () {
+              alert("Thank you for your purchase!");
+              window.location.href = "index.html";
+            }, 2000); // 5000 milliseconds (5 seconds) delay
+          }
+        </script>
+        
+        <div class="mt-3 text-center">
+          <button
+            id="checkout-button"
+            onclick="checkout()"
+            class="btn btn-success btn-lg"
+          >
+            Checkout
+          </button>
+          <!-- Include the dotlottie-player element with initial style="display: none;" -->
+          <dotlottie-player
+            id="checkout-animation"
+            src="https://lottie.host/69105c6f-23bc-4b83-bcc0-686ea5740561/mFcHWeVBwJ.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px; display: none; margin: 0 auto;"
+            loop
+            autoplay
+          ></dotlottie-player>
+        </div>
     <script src="cart.js"></script>
   </body>
 </html>
