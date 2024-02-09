@@ -21,6 +21,8 @@ function displayCartItems() {
     // Extract numerical value from item.price
     const numericPrice = parseFloat(item.price.replace(/[^\d.]/g, ""));
 
+    const displayPrice = isNaN(numericPrice) ? 45 : numericPrice;
+
     // Display item details (modify as needed)
     itemContainer.innerHTML = `
             <img src="${item.imageUrl}" alt="${
@@ -30,7 +32,7 @@ function displayCartItems() {
                 <h2>${item.title}</h2>
                 <p>${item.description}</p>
                 <p>Quantity: ${item.quantity}</p>
-                <p>Price: $${(numericPrice * parseInt(item.quantity)).toFixed(
+                <p>Price: $${(displayPrice * parseInt(item.quantity)).toFixed(
                   2
                 )}</p>
             </div>
@@ -44,18 +46,14 @@ function displayCartItems() {
   const totalPrice = cartItems.reduce((total, item) => {
     // Extract numerical value from item.price
     const numericPrice = parseFloat(item.price.replace(/[^\d.]/g, ""));
-    console.log("Numeric price for item:", numericPrice);
 
-    console.log("Item quantity:", item.quantity);
-    console.log(
-      "Partial total for item:",
-      numericPrice * parseInt(item.quantity)
-    );
-    return total + numericPrice * parseInt(item.quantity);
+    // Check if numericPrice is NaN, and set it to a default value ($45)
+    const displayPrice = isNaN(numericPrice) ? 45 : numericPrice;
+
+    return total + displayPrice * parseInt(item.quantity);
   }, 0);
 
-  console.log("Total price:", totalPrice);
-
+  // Update the total price display
   totalPriceElement.textContent = totalPrice.toFixed(2);
 }
 
