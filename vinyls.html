@@ -9,13 +9,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://kit.fontawesome.com/3537cee49b.js"
       crossorigin="anonymous"
@@ -44,64 +53,74 @@
         class="container-fluid d-flex justify-content-between align-items-center"
       >
         <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
-        <ul class="nav">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDarkDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="navbarDarkDropdownMenuLink"
-            >
-              <li><a class="dropdown-item" href="game.html">Trivia</a></li>
-              <li>
-                <a class="dropdown-item" href="curated.html"
-                  >Personalized Recommendations</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html" style="color: white">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vinyls.html" style="color: white"
-              >Vinyls</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Contact.html" style="color: white"
-              >Contact</a
-            >
-          </li>
-          <li class="nav-item">
-            <form class="d-flex">
-              <input type="text" name="search" id="sbar" placeholder="Search" />
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="shopping.html"
-              style="color: white"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasResponsive"
-            >
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="quantity">0</span>
-            </a>
-          </li>
-        </ul>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse text-center justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDarkDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Discover
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="navbarDarkDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="game.html">Trivia</a></li>
+                <li>
+                  <a class="dropdown-item" href="curated.html"
+                    >Personalized Recommendations</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" style="color: white"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vinyls.html" style="color: white"
+                >Vinyls</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Contact.html" style="color: white"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="shopping.html"
+                style="color: white"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasResponsive"
+              >
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="quantity">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <br />
@@ -110,18 +129,45 @@
         <h3 class="ms-3">Vinyls</h3>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a href="#" class="nav-link text-muted"> Rock Vinyls </a>
+            <a
+              href="#"
+              class="nav-link text-muted"
+              onclick="filterProducts('all')"
+            >
+              All
+            </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link text-muted"> Jazz Vinyls </a>
+            <a
+              href="#"
+              class="nav-link text-muted"
+              onclick="filterProducts('rock')"
+            >
+              Rock Vinyls
+            </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link text-muted"> Pop Vinyls </a>
+            <a
+              href="#"
+              class="nav-link text-muted"
+              onclick="filterProducts('jazz')"
+            >
+              Jazz Vinyls
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="#"
+              class="nav-link text-muted"
+              onclick="filterProducts('pop')"
+            >
+              Pop Vinyls
+            </a>
           </li>
         </ul>
       </div>
       <div class="col offset-1 col-9 d-flex flex-wrap justify-content-between">
-        <div class="card m-6">
+        <div class="card m-6 rock">
           <a href="product.html?id=1" data id="1">
             <!--Product 1-->
             <img
@@ -133,6 +179,7 @@
           </a>
           <div class="card-body text-center">
             <p class="card-text fw-bold">Rolling Stones (Hackney Diamonds)</p>
+            <p class="card-text">Rolling Stones</p>
             <small class="text-secondary"> $45 </small>
           </div>
         </div>
@@ -148,40 +195,142 @@
           </a>
           <div class="card-body text-center">
             <p class="card-text fw-bold">I Need To Start A Garden</p>
+            <p class="card-text">Haley Heynderickx</p>
             <small class="text-secondary"> $45 </small>
           </div>
         </div>
-        <div class="card m-6">
-          <a href="#" data-id="3"
+        <div class="card m-6 rock">
+          <a href="product.html?id=3" data-id="3"
             ><!--Product 3-->
             <img
-              src="images/DGD_Mothership.jpeg"
+              src="images/mothership.jpg"
               class="card-img-top"
               height="300"
               alt="Product"
             />
           </a>
           <div class="card-body text-center">
-            <p class="card-text fw-bold">Rolling Stones (Hackney Diamonds)</p>
+            <h5 class="card-text fw-bold">Mothership</h5>
+            <p class="card-text">Dance Gavin Dance</p>
             <small class="text-secondary"> $45 </small>
           </div>
         </div>
-        <div class="card m-6">
-          <a href="#" data-id="4"
+        <div class="card m-6 pop">
+          <a href="product.html?id=4" data-id="4"
             ><!--Product 4-->
             <img
-              src="images/DGD_Mothership.jpeg"
+              src="images/colortheoryvinyl.jpg"
               class="card-img-top"
               height="300"
               alt="Product"
             />
           </a>
           <div class="card-body text-center">
-            <p class="card-text fw-bold">Rolling Stones (Hackney Diamonds)</p>
+            <p class="card-text fw-bold">Color Theory</p>
+            <p class="card-text">Soccery Mommy</p>
+            <small class="text-secondary"> $45 </small>
+          </div>
+        </div>
+        <div class="card m-7 pop">
+          <a href="product.html?id=5" data-id="5"
+            ><!--Product 4-->
+            <img
+              src="images/graduation.jpg"
+              class="card-img-top"
+              height="300"
+              alt="Product"
+            />
+          </a>
+          <div class="card-body text-center">
+            <p class="card-text fw-bold">Graduation</p>
+            <p class="card-text">Kanye West</p>
+            <small class="text-secondary"> $40 </small>
+          </div>
+        </div>
+        <div class="card m-7 jazz">
+          <a href="product.html?id=6" data-id="6"
+            ><!--Product 4-->
+            <img
+              src="images/julie.jpg"
+              class="card-img-top"
+              height="300"
+              alt="Product"
+            />
+          </a>
+          <div class="card-body text-center">
+            <p class="card-text fw-bold">Julie Is Her Name</p>
+            <p class="card-text">Julie London</p>
+            <small class="text-secondary"> $45 </small>
+          </div>
+        </div>
+        <div class="card m-7 pop">
+          <a href="product.html?id=7" data-id="7"
+            ><!--Product 4-->
+            <img
+              src="images/goodvinyl.jpg"
+              class="card-img-top"
+              height="300"
+              alt="Product"
+            />
+          </a>
+          <div class="card-body text-center">
+            <p class="card-text fw-bold">Good At Falling</p>
+            <p class="card-text">The Japanese House</p>
+            <small class="text-secondary"> $45 </small>
+          </div>
+        </div>
+        <div class="card m-7 rock">
+          <a href="product.html?id=8" data-id="8">
+            <img
+              src="images/maine.jpg"
+              class="card-img-top"
+              height="300"
+              alt="Product"
+            />
+          </a>
+          <div class="card-body text-center">
+            <p class="card-text fw-bold">Lovely Little Lonely</p>
+            <p class="card-text">The Maine</p>
+            <small class="text-secondary"> $45 </small>
+          </div>
+        </div>
+        <div class="card m-7 pop">
+          <a href="product.html?id=9" data-id="9">
+            <img
+              src="images/habit.jpg"
+              class="card-img-top"
+              height="300"
+              alt="Product"
+            />
+          </a>
+          <div class="card-body text-center">
+            <p class="card-text fw-bold">Habit</p>
+            <p class="card-text">Snail Mail</p>
             <small class="text-secondary"> $45 </small>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      function filterProducts(category) {
+        // Hide all products initially
+        document.querySelectorAll(".card").forEach((card) => {
+          card.style.display = "none";
+        });
+
+        if (category === "all") {
+          // Show all products
+          document.querySelectorAll(".card").forEach((card) => {
+            card.style.display = "block";
+          });
+        } else {
+          // Show products of the selected category
+          document.querySelectorAll(`.${category}`).forEach((card) => {
+            card.style.display = "block";
+            card.parentNode.appendChild(card);
+          });
+        }
+      }
+    </script>
   </body>
 </html>
