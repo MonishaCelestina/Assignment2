@@ -58,3 +58,36 @@ function displayCartItems() {
 
   totalPriceElement.textContent = totalPrice.toFixed(2);
 }
+
+// Initialize a variable to track whether the discount has been applied
+let discountApplied = false;
+
+function applyDiscount() {
+  const discountCodeInput = document
+    .getElementById("discount-code")
+    .value.toUpperCase();
+  const totalPriceElement = document.getElementById("total-price");
+
+  // Check if the discount has already been applied
+  if (discountApplied) {
+    alert("Discount has already been applied.");
+    return;
+  }
+
+  // Check if the entered code is YAY100
+  if (discountCodeInput === "YAY100") {
+    const totalPrice = parseFloat(totalPriceElement.textContent);
+
+    // Apply the fixed 20% discount
+    const discountedPrice = totalPrice * 0.8; // 80% of the original price
+
+    // Update the total price display
+    totalPriceElement.textContent = discountedPrice.toFixed(2);
+    alert("Discount applied! Your total is now 20% off.");
+
+    // Set the discountApplied variable to true to indicate that the discount has been used
+    discountApplied = true;
+  } else {
+    alert("Invalid discount code.");
+  }
+}
