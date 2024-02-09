@@ -220,7 +220,7 @@ function addToCart(songData) {
     cartItems.push({
       title: songData.name,
       description: songData.album.name,
-      price: songData.artists[0].name,
+      price: 45.0,
       quantity: 1,
       imageUrl:
         songData.album.images && songData.album.images.length > 1
@@ -229,8 +229,8 @@ function addToCart(songData) {
     });
   }
 
-  // Save updated cart items to local storage
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  console.log("Updated Cart Items:", cartItems); // <-- Corrected log statement
 
   // Update the cart quantity display
   const cartQuantityElement = document.querySelector(".quantity");
