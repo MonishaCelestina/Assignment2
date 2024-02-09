@@ -61,8 +61,12 @@ function handleAuthResponse(response) {
       getSongs();
     });
   } else {
-    console.log(response.statusText);
-    alert(response.statusText);
+    console.error(
+      "Error in authentication:",
+      response.status,
+      response.statusText
+    );
+    alert("Authentication error. Please check the console for details.");
   }
 }
 
@@ -95,7 +99,6 @@ function handleSongResponse(response) {
   if (response.status === 200) {
     response.json().then((data) => {
       console.log("Handling song response:", data);
-
       if (data.tracks && Array.isArray(data.tracks)) {
         songlist(data);
         hideSecondAnimation();
@@ -107,8 +110,12 @@ function handleSongResponse(response) {
     // If unauthorized, redirect to get a new access token
     getNewAccessToken();
   } else {
-    console.log(response.statusText);
-    alert(response.statusText);
+    console.error(
+      "Error in fetching songs:",
+      response.status,
+      response.statusText
+    );
+    alert("Error in fetching songs. Please check the console for details.");
   }
 }
 
@@ -163,12 +170,12 @@ function createListItem(songData) {
   text.textContent = `${songData.album.name} . ${songData.artists[0].name}`;
   cardBody.appendChild(text);
 
-  const addtocart = document.createElement("a");
-  addtocart.id = "add-to-cart-button";
-  addtocart.classList.add("btn", "btn-primary");
-  addtocart.href = "product.js";
-  addtocart.target = "_blank";
+  const addtocart = document.createElement("button");
+  addtocart.classList.add("btn", "btn-primary", "add-to-cart-button");
   addtocart.textContent = "Add to Cart";
+  addtocart.addEventListener("click", function () {
+    addToCart(songData);
+  });
   cardBody.appendChild(addtocart);
 
   card.appendChild(cardBody);
@@ -196,7 +203,42 @@ function songlist(data) {
     console.error("Tracks not found or is not an array in data.");
   }
 }
+function addToCart(songData) {
+  // Retrieve cart items from local storage
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
+  // Check if the item already exists in the cart
+  const existingItemIndex = cartItems.findIndex(
+    (item) => item.title === songData.name
+  );
+
+  if (existingItemIndex !== -1) {
+    // If item exists, update the quantity
+    cartItems[existingItemIndex].quantity += 1;
+  } else {
+    // If item does not exist, add the item to the cart
+    cartItems.push({
+      title: songData.name,
+      description: songData.album.name,
+      price: songData.artists[0].name,
+      quantity: 1,
+      imageUrl:
+        songData.album.images && songData.album.images.length > 1
+          ? songData.album.images[1].url
+          : null,
+    });
+  }
+
+  // Save updated cart items to local storage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  // Update the cart quantity display
+  const cartQuantityElement = document.querySelector(".quantity");
+  cartQuantityElement.innerText = cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
+}
 function removeItem() {
   list.innerHTML = "";
 }
