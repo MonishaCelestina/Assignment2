@@ -1,6 +1,6 @@
 const redirect = "http://localhost:8888/logged";
 const client_id = "a644b20888dc4eb182b3f8d546a678ca";
-const client_secret = "5acd2502954048fdb552c5a145f123da";
+const client_secret = "5acd2502954048fdb552c5a145f123da"; // Replace with your actual client secret
 
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const TOKEN = "https://accounts.spotify.com/api/token";
@@ -42,30 +42,12 @@ function getCode() {
 function fetchAccessToken(code) {
   const body = new URLSearchParams({
     grant_type: "authorization_code",
-    code,
+    code: code,
     redirect_uri: redirect,
-    client_id,
-    client_secret,
+    client_id: client_id,
+    // The client_secret should not be in client-side code.
+    client_secret: client_secret,
   }).toString();
-
-  callApi("POST", TOKEN, body, handleAuthResponse);
-}
-
-function refreshAccessToken() {
-  const refresh_token = localStorage.getItem("refresh_token");
-
-  if (!refresh_token) {
-    console.error("Refresh token is missing.");
-    return;
-  }
-
-  const body = new URLSearchParams({
-    grant_type: "refresh_token",
-    refresh_token,
-    client_id,
-  }).toString();
-
-  console.log("Refreshing access token...");
 
   callApi("POST", TOKEN, body, handleAuthResponse);
 }
@@ -75,9 +57,6 @@ function handleAuthResponse(response) {
     response.json().then((data) => {
       if (data.access_token != undefined) {
         localStorage.setItem("access_token", data.access_token);
-      }
-      if (data.refresh_token != undefined) {
-        localStorage.setItem("refresh_token", data.refresh_token);
       }
       getSongs();
     });
@@ -103,10 +82,6 @@ function callApi(method, url, body, callback) {
     headers["Authorization"] = "Bearer " + access_token;
   }
 
-  if (method === "POST") {
-    headers["Authorization"] = "Basic " + btoa(client_id + ":" + client_secret);
-  }
-
   fetch(url, {
     method: method,
     headers: headers,
@@ -129,11 +104,27 @@ function handleSongResponse(response) {
       }
     });
   } else if (response.status === 401) {
-    refreshAccessToken();
+    // If unauthorized, redirect to get a new access token
+    getNewAccessToken();
   } else {
     console.log(response.statusText);
     alert(response.statusText);
   }
+}
+
+function getNewAccessToken() {
+  // Use the client credentials grant type to get a new access token
+  fetchAccessTokenUsingClientCredentials();
+}
+
+function fetchAccessTokenUsingClientCredentials() {
+  const body = new URLSearchParams({
+    grant_type: "client_credentials",
+    client_id: client_id,
+    client_secret: client_secret,
+  }).toString();
+
+  callApi("POST", TOKEN, body, handleAuthResponse);
 }
 
 function hideSecondAnimation() {
