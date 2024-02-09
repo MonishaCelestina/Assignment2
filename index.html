@@ -3,86 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script>
-        // Clear local storage when the website is launched
-        localStorage.clear();
+      // Clear local storage when the website is launched
+      localStorage.clear();
     </script>
-    <script src="https://kit.fontawesome.com/3537cee49b.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/3537cee49b.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
     <style>
-        #video-container {
-            width: 100%;
-            overflow: hidden;
-        }
+      #video-container {
+        width: 100%;
+        overflow: hidden;
+      }
 
-        .video-text {
-            position: absolute;
-            top: 100%;
-            left: 20%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            z-index: 2;
-            font-size: 24px;
-        }
+      .video-text {
+        position: absolute;
+        top: 100%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 2;
+        font-size: 24px;
+      }
 
-        video {
-            width: 100%;
-            height: auto;
-        }
+      video {
+        width: 100%;
+        height: auto;
+      }
     </style>
-</head>
+  </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-      <div class="container-fluid d-flex justify-content-between align-items-center">
-          <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown
-                      </a>
-                      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                          <li><a class="dropdown-item" href="game.html">Trivia</a></li>
-                          <li><a class="dropdown-item" href="curated.html">Personalized Recommendations</a></li>
-                      </ul>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="index.html" style="color: white;">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="vinyls.html" style="color: white;">Vinyls</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="Contact.html" style="color: white;">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="shopping.html" style="color: white;" data-bs-toggle="offcanvas"
-                          data-bs-target="#offcanvasResponsive">
-                          <i class="fa-solid fa-cart-shopping"></i>
-                          <span class="quantity">0</span>
-                      </a>
-                  </li>
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse text-center justify-content-center"
+          id="navbarNav"
+          style="margin-right: 40px"
+        >
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fs-5 me-3"
+                href="#"
+                id="navbarDarkDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Discover
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="navbarDarkDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="game.html">Trivia</a></li>
+                <li>
+                  <a class="dropdown-item" href="curated.html"
+                    >Personalized Recommendations</a
+                  >
+                </li>
               </ul>
-          </div>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-5 me-3"
+                href="index.html"
+                style="color: white"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-5 me-3"
+                href="vinyls.html"
+                style="color: white"
+                >Vinyls</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-5 me-3"
+                href="Contact.html"
+                style="color: white"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item fs-5 me-3">
+              <a
+                class="nav-link"
+                href="shopping.html"
+                style="color: white"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasResponsive"
+              >
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="quantity">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-  </nav>
-
-
+    </nav>
 
     <div id="video-container">
       <video autoplay loop muted plays-inline>
@@ -91,18 +152,22 @@
           type="video/mp4"
         />
       </video>
-            <div class="video-text">
+      <div class="video-text">
         <h1><strong>MoniSar Records</strong></h1>
       </div>
     </div>
     <div class="featured-header">
       <h2>Featured vinyl</h2>
-      <hr class="vertical-hr">
+      <hr class="vertical-hr" />
       <div class="view-text">
-        <h6><a><i><u>View More</u></i></a></h6>
+        <h6>
+          <a href="vinyls.html"
+            ><i><u>View More</u></i></a
+          >
+        </h6>
       </div>
     </div>
-    
+
     <div class="row row-cols-1 row-cols-md-5 g-4">
       <div class="col">
         <div class="card h-100">
@@ -127,7 +192,7 @@
         <div class="card h-100">
           <img src="images/goodatfalling.jpeg" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">Good at Falling/h5>
+            <h5 class="card-title">Good at Falling</h5>
             <p class="card-text">
               This card has supporting text below as a natural lead-in to
               additional content.
@@ -140,7 +205,11 @@
       </div>
       <div class="col">
         <div class="card h-100">
-          <img src="images/Soccer_Mommy_-_Color_Theory.png" class="card-img-top" alt="..." />
+          <img
+            src="images/Soccer_Mommy_-_Color_Theory.png"
+            class="card-img-top"
+            alt="..."
+          />
           <div class="card-body">
             <h5 class="card-title">Color Theory</h5>
             <p class="card-text">
@@ -172,7 +241,11 @@
       </div>
       <div class="col">
         <div class="card h-100">
-          <img src="images/Soccer_Mommy_-_Color_Theory.png" class="card-img-top" alt="..." />
+          <img
+            src="images/Soccer_Mommy_-_Color_Theory.png"
+            class="card-img-top"
+            alt="..."
+          />
           <div class="card-body">
             <h5 class="card-title">Color Theory</h5>
             <p class="card-text">
@@ -187,10 +260,18 @@
         </div>
       </div>
     </div>
-    <br>
-    <br>
-    <div class="container-fluid bg-dark text-center py-5" style="width: 100%; min-height: 400px;">
-      <a href="curated.html" class="btn btn-primary btn-lg" style="margin-top: 140px;">Want us to give you personalized picks?</a>
+    <br />
+    <br />
+    <div
+      class="container-fluid bg-dark text-center py-5"
+      style="width: 100%; min-height: 400px"
+    >
+      <a
+        href="curated.html"
+        class="btn btn-primary btn-lg"
+        style="margin-top: 140px"
+        >Want us to give you personalized picks?</a
+      >
     </div>
     <footer class="text-center bg-body-tertiary">
       <div class="container pt-4">
@@ -211,7 +292,7 @@
             data-mdb-ripple-color="dark"
             ><i class="fab fa-twitter"></i
           ></a>
-    
+
           <a
             data-mdb-ripple-init
             class="btn btn-link btn-floating btn-lg text-body m-1"
@@ -220,7 +301,7 @@
             data-mdb-ripple-color="dark"
             ><i class="fab fa-google"></i
           ></a>
-    
+
           <a
             data-mdb-ripple-init
             class="btn btn-link btn-floating btn-lg text-body m-1"
@@ -229,7 +310,7 @@
             data-mdb-ripple-color="dark"
             ><i class="fab fa-instagram"></i
           ></a>
-    
+
           <a
             data-mdb-ripple-init
             class="btn btn-link btn-floating btn-lg text-body m-1"
@@ -248,7 +329,10 @@
           ></a>
         </section>
       </div>
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
         © 2024 Copyright:
         <a class="text-body" href="#">MoniSar.com</a>
       </div>
