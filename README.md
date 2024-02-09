@@ -17,13 +17,13 @@ Website idea: Vinyl Record Store
 **Roles**
 (Monisha)
 
-- Created home page
-- Created vinyl listings page
+- Created home page (did design and functionality)
+- Created vinyl listings page (did design and functionality)
 - Implemented the Spotify API and design of the page where the personalized recommendations are displayed (logged.html)
 - Did the design for the authorization page (curated.html)
 - Implemented the functionality of the game API
-- Created shopping cart page and implemented the functionality (shopping.html)
-- Created the navigation bar using bootstrap
+- Created shopping cart page and implemented the functionality (shopping.html) (did design and functionality)
+- Created the navigation bar using bootstrap (did design and functionality)
 
 (Sarrinah)
 
