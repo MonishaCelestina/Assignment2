@@ -31,7 +31,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="game.css" />
+    <link rel="stylesheet" href="styling/game.css" />
   </head>
   <body class="flex">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -104,15 +104,9 @@
               >
             </li>
             <li class="nav-item fs-5 me-3">
-              <a
-                class="nav-link"
-                href="shopping.html"
-                style="color: white"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasResponsive"
-              >
+              <a class="nav-link" href="shopping.html" style="color: white">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span class="quantity">0</span>
+                <span id="cart-quantity" class="quantity">0</span>
               </a>
             </li>
           </ul>
