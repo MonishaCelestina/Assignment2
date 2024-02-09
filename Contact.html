@@ -12,9 +12,10 @@
     <script src="https://kit.fontawesome.com/3537cee49b.js" crossorigin="anonymous"></script>
     <title>Document</title>
 
-    <link rel="stylesheet" href="styling/Contact.css">
+    <link rel="stylesheet" type="text/css" href="Contact.css">
     <script src="Contact.js" defer></script>
 </head>
+
 <body>
   <div class="background"></div>
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -22,104 +23,53 @@
       class="container-fluid d-flex justify-content-between align-items-center"
     >
       <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="collapse navbar-collapse text-center justify-content-center"
-        id="navbarNav"
-        style="margin-right: 40px"
-      >
-        <ul class="navbar-nav ms-auto me-3">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle fs-5 me-3"
-              href="#"
-              id="navbarDarkDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Discover
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="navbarDarkDropdownMenuLink"
-            >
-              <li>
-                <a class="dropdown-item" href="game.html">Trivia</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="curated.html"
-                  >Personalized Recommendations</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link fs-5 me-3"
-              href="index.html"
-              style="color: white"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link fs-5 me-3"
-              href="vinyls.html"
-              style="color: white"
-              >Vinyls</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link fs-5 me-3"
-              href="Contact.html"
-              style="color: white"
-              >Contact</a
-            >
-          </li>
-          <li class="nav-item fs-5 me-3">
-            <a class="nav-link" href="shopping.html" style="color: white">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span id="cart-quantity" class="quantity">0</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="game.html">Trivia!</a>
+        </li>
+        <li class="nav-item">
+          <form class="d-flex">
+            <input type="text" name="search" id="sbar" placeholder="Search" />
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </li>
+      </ul>
     </div>
   </nav>
-  
+
   <section id="contact">
     <div class="form-container">
       <h2>Contact Us!</h2>
-      <form>
+      <form id="contact-form" class="form">
           <div class="form-group">
-              <input type="text" name="name" placeholder="Name" required />
+              <input type="text" name="name" placeholder="Name" autocomplete="name" required />
           </div>
           <div class="form-group">
-              <input type="email" name="email" placeholder="Email" required />
+              <input type="email" name="email" placeholder="Email" autocomplete="email"required />
           </div>
           <div class="form-group">
-              <input type="tel" name="phone" placeholder="Phone" />
+              <input type="tel" name="phone" placeholder="Phone" autocomplete="tel"/>
           </div>
           <div class="form-group">
-              <textarea name="message" placeholder="Message" rows="8" cols="50" required></textarea>
+              <textarea name="message" placeholder="Message" rows="8" cols="50" autocomplete="off"required></textarea>
           </div>
           <div class="form-group">
               <button type="submit" class="btn btn-primary" onclick="showAlert()">Submit</button>
           </div>
       </form>
   </div>
-  
+
+</section>
 </body>
 </html>
