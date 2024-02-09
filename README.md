@@ -49,6 +49,7 @@ We wanted to make this website has a nice design, interactive towards user, allo
 - After checking out items, the user will be redirected to the home page and the shopping cart will be emptied.
 - In the vinyls listings page, Users can filter what kind of genre of vinyls they want to view.
 - Users may not be able to use the discount code provided to them by the trivia game twice.
+- (Trivia page) When the user clicks on play and next button, a loading bar animation will be shown before showing the next page.
 
 ## **Technologies Used**
 
