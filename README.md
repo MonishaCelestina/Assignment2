@@ -14,6 +14,8 @@ Website idea: Vinyl Record Store
 
 - Colour Scheme: Black, Brown and White
 
+Github: https://github.com/MonishaCelestina/Assignment2.git
+
 **Roles**
 (Monisha)
 
