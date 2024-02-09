@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Top Spotify</title>
-    <link rel="stylesheet" href="logged.css" />
+    <link rel="stylesheet" href="styling/logged.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -89,24 +89,27 @@
         <div
           class="collapse navbar-collapse text-center justify-content-center"
           id="navbarNav"
+          style="margin-right: 40px"
         >
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto me-3">
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                class="nav-link dropdown-toggle fs-5 me-3"
                 href="#"
                 id="navbarDarkDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Discover
               </a>
               <ul
                 class="dropdown-menu dropdown-menu-dark"
                 aria-labelledby="navbarDarkDropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="game.html">Trivia</a></li>
+                <li>
+                  <a class="dropdown-item" href="game.html">Trivia</a>
+                </li>
                 <li>
                   <a class="dropdown-item" href="curated.html"
                     >Personalized Recommendations</a
@@ -115,28 +118,31 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html" style="color: white"
+              <a
+                class="nav-link fs-5 me-3"
+                href="index.html"
+                style="color: white"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vinyls.html" style="color: white"
+              <a
+                class="nav-link fs-5 me-3"
+                href="vinyls.html"
+                style="color: white"
                 >Vinyls</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Contact.html" style="color: white"
+              <a
+                class="nav-link fs-5 me-3"
+                href="Contact.html"
+                style="color: white"
                 >Contact</a
               >
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="shopping.html"
-                style="color: white"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasResponsive"
-              >
+            <li class="nav-item fs-5 me-3">
+              <a class="nav-link" href="shopping.html" style="color: white">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="quantity">0</span>
               </a>
@@ -197,7 +203,7 @@
     <section id="API" class="API">
       <div id="list" class="list"></div>
     </section>
-
+    <script></script>
     <script src="app.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
