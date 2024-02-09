@@ -25,8 +25,8 @@ We wanted to make this website has a nice design, interactive towards user, allo
 - Spotify feature (using API)
 
   **Additional Features**
-
-- User that completes the trivia quiz questions will be given a discount code for their participation. This can be used when they want to purchase items from the record store.
+- (Trivia page) User that completes the trivia quiz questions will be given a discount code for their participation. This can be used when they want to purchase items from the record store.
+- (Trivia page) When the user clicks on play and next button, a loading bar animation will be shown before showing the next page.
 
 ## **Technologies Used**
 
@@ -36,7 +36,7 @@ We wanted to make this website has a nice design, interactive towards user, allo
 - For Contact page, fill up the form with name, email, phone number and a message.
 - Click on submit after filling up the form.
 - After submitting, an acknowledgement message, "Your form has been submitted!" will appear, indicating that the form has been submitted
-- There's an 'ok' button in the box where the acknowledgement message appear and after clicking on that, the contact form will be renewed.
+- There's an 'ok' button in the box where the acknowledgement message appear and after clicking on that, the page, refreshes and the contact form will be renewed.
 -
 -
 
