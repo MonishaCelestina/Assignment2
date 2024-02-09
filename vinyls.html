@@ -22,28 +22,64 @@
     ></script>
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card:hover img {
+        transform: scale(1.1);
+      }
+
+      .card img {
+        transition: transform 0.3s ease-in-out;
+      }
+    </style>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-white navbar-light">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div
         class="container-fluid d-flex justify-content-between align-items-center"
       >
-        <a href="#" class="navbar-brand text-black fs-5 fw-bold">MoniSar</a>
+        <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
         <ul class="nav">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dropdown
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              <li><a class="dropdown-item" href="game.html">Trivia</a></li>
+              <li>
+                <a class="dropdown-item" href="curated.html"
+                  >Personalized Recommendations</a
+                >
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link active text-black" aria-current="page" href="#"
-              >Active</a
+            <a class="nav-link" href="index.html" style="color: white">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vinyls.html" style="color: white"
+              >Vinyls</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-black" href="#">Categories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-black" href="#">Contact</a>
+            <a class="nav-link" href="Contact.html" style="color: white"
+              >Contact</a
+            >
           </li>
           <li class="nav-item">
             <form class="d-flex">
@@ -53,37 +89,21 @@
               </button>
             </form>
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="shopping.html"
+              style="color: white"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasResponsive"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="quantity">0</span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
-
-    <div
-      class="w-100 navbar-nav d-flex justify-content-center align-items-center pt-3 bg-dark"
-    >
-      <ul class="d-flex list-unstyled">
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#">Vinyls</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#">Merch</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#">CDs</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#">Cassettes</a>
-        </li>
-      </ul>
-    </div>
-    <div class="container-fluid position-relative">
-      <img
-        src="images/vinyl_listing.jpg"
-        class="img-fluid w-100 h-100"
-        alt="Vinyl Listing Image"
-        alt="Vinyl Listing Image"
-      />
-      <div class="overlay"></div>
-    </div>
     <br />
     <div class="row">
       <div class="col col-lg-3 text-start">
