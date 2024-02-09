@@ -1,3 +1,6 @@
+// Retrieve cart items from local storage
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
 document.addEventListener("DOMContentLoaded", function () {
   // Get the product ID from the URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -24,6 +27,40 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuantity > 1) {
       quantityInput.value = currentQuantity - 1;
     }
+  });
+
+  // Add to Cart Button Event Listener
+  const addToCartBtn = document.getElementById("add-to-cart-btn");
+  addToCartBtn.addEventListener("click", function () {
+    // Get product details
+    const title = document.getElementById("product-title").innerText;
+    const description = document.getElementById(
+      "product-description"
+    ).innerText;
+    const price = document.getElementById("product-price").innerText;
+    const quantity = parseInt(document.getElementById("quantity-input").value);
+    const imageUrl = document.getElementById("product-image").src;
+
+    // Check if the item already exists in the cart
+    const existingItemIndex = cartItems.findIndex(
+      (item) => item.title === title
+    );
+    if (existingItemIndex !== -1) {
+      // If item exists, update the quantity
+      cartItems[existingItemIndex].quantity += quantity;
+    } else {
+      // If item does not exist, add the item to the cart with quantity
+      cartItems.push({ title, description, price, quantity, imageUrl });
+    }
+
+    // Save updated cart items to local storage
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    const cartQuantityElement = document.getElementById("cart-quantity");
+    cartQuantityElement.innerText = cartItems.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
   });
 });
 
