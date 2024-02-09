@@ -20,3 +20,11 @@
 #cart i:hover {
   color: gray;
 }
+
+.nav .nav-link {
+  font-size: 18px;
+}
+
+.nav .nav-item {
+  margin-right: 15px;
+}
