@@ -11,12 +11,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
     <link
-      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://kit.fontawesome.com/3537cee49b.js"
       crossorigin="anonymous"
@@ -58,47 +68,81 @@
       }
     </script>
   </head>
+
   <body onload="onPageLoad()" style="background-color: black">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div
         class="container-fluid d-flex justify-content-between align-items-center"
       >
         <a href="#" class="navbar-brand text-white fs-5 fw-bold">MoniSar</a>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html" style="color: white">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vinyls.html" style="color: white"
-              >Vinyls</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Contact.html" style="color: white"
-              >Contact</a
-            >
-          </li>
-          <li class="nav-item">
-            <form class="d-flex">
-              <input type="text" name="search" id="sbar" placeholder="Search" />
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="shopping.html"
-              style="color: white"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasResponsive"
-            >
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="quantity">0</span>
-            </a>
-          </li>
-        </ul>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse text-center justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDarkDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="navbarDarkDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="game.html">Trivia</a></li>
+                <li>
+                  <a class="dropdown-item" href="curated.html"
+                    >Personalized Recommendations</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" style="color: white"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vinyls.html" style="color: white"
+                >Vinyls</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Contact.html" style="color: white"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="shopping.html"
+                style="color: white"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasResponsive"
+              >
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="quantity">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <!-- first-section -->
@@ -160,46 +204,5 @@
       integrity="sha384-dZl4l7iXWNAKdiLq3GXeEe0z33zx75n4l25dkdFckw6c9/cuo3n3MEq2ok2aSzvZ"
       crossorigin="anonymous"
     ></script>
-    <script>
-      window.onload = function () {
-        localStorage.removeItem("cartItems");
-      };
-      // Add event listener to "Add to Cart" button
-      document
-        .getElementById("add-to-cart-btn")
-        .addEventListener("click", function () {
-          // Retrieve product details
-          var productTitle = document.getElementById("product-title").innerText;
-          var productDescription = document.getElementById(
-            "product-description"
-          ).innerText;
-          var productPrice = document.getElementById("product-price").innerText;
-          var productImage = document
-            .getElementById("product-image")
-            .getAttribute("src");
-
-          // Create an object to store product details
-          var product = {
-            title: productTitle,
-            description: productDescription,
-            price: productPrice,
-            image: productImage,
-          };
-
-          // Retrieve existing cart items from local storage or initialize an empty array
-          var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-          // Add the new product to the cart items array
-          cartItems.push(product);
-
-          // Update the cart quantity displayed in the navbar
-          var cartQuantityElement = document.getElementById("cart-quantity");
-          var cartQuantity = parseInt(cartQuantityElement.innerText);
-          cartQuantityElement.innerText = cartQuantity + 1;
-
-          // Store the updated cart items array back in local storage
-          localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        });
-    </script>
   </body>
 </html>
