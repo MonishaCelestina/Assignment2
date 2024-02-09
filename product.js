@@ -80,11 +80,53 @@ function getProductDetails(productId) {
       imageUrl: "images/gardenalbum.jpeg",
     },
     3: {
-      title: "Another Product",
+      title: "Mothership",
       description:
-        "This is an example product description for Another Product.",
+        "Mothership is the seventh studio album by American rock band Dance Gavin Dance, released on October 7, 2016, on Rise Records.",
       price: 39.99,
-      imageUrl: "images/DGD_Mothership.jpeg",
+      imageUrl: "images/mothership.jpg",
+    },
+    4: {
+      title: "Color Theory",
+      description:
+        "The second album from singer-songwriter Sophie Allison is piercing and unpredictable. In contrast to its bigger and brighter sound, the mood is grimmer, the emotional truths darker.",
+      price: 45.0,
+      imageUrl: "images/colortheoryvinyl.jpg",
+    },
+    5: {
+      title: "Graduation",
+      description:
+        "Graduation is the third studio album by American rapper Kanye West, released September 11, 2007, by Def Jam and Roc-A-Fella. ",
+      price: 40.0,
+      imageUrl: "images/graduation.jpg",
+    },
+    6: {
+      title: "Julie Is Her Name",
+      description:
+        "Julie Is Her Name is the first LP album by Julie London, released by Liberty Records in December, 1955, under catalog numbers LRP-3006, in monaural form.",
+      price: 45.0,
+      imageUrl: "images/julie.jpg",
+    },
+    7: {
+      title: "Good At Falling",
+      description:
+        "Julie Is Her Name is the first LP album by Julie London, released by Liberty Records in December, 1955, under catalog numbers LRP-3006, in monaural form.",
+      price: 45.0,
+      imageUrl: "images/goodvinyl.jpg",
+    },
+    8: {
+      title: "Lovely Little Lonely",
+      description:
+        "The Maine's sixth studio album, Lovely Little Lonely. - 180 Gram Vinyl - Limited Edition Variant (Half Yellow, Half Black vinyl)",
+      price: 45.0,
+      imageUrl: "images/maine.jpg",
+    },
+    9: {
+      title: "Habit",
+      description:
+        "Available in its first pressing for Matador Records, Snail Mail’s debut EP “Habit” serves as a nascent example of Lindsey Jordan’s extraordinary talent as a songwriter, singer and guitarist. The seven song disc features the six original 2016 tracks as well as “The 2nd Most Beautiful Girl In The World,” penned by K Records Band Courtney Love and recorded by Snail Mail in 2018, available on record for the first time. ",
+      price: 45.0,
+      imageUrl: "images/habit.jpg",
     },
   };
 
