@@ -35,8 +35,8 @@ We wanted to make this website has a nice design, interactive towards user, allo
 
 - For Contact page, fill up the form with name, email, phone number and a message.
 - Click on submit after filling up the form.
-- After submitting, a message, "Your form has been submitted!" will appear, indicating that the form has been submitted
--
+- After submitting, an acknowledgement message, "Your form has been submitted!" will appear, indicating that the form has been submitted
+- There's an 'ok' button in the box where the acknowledgement message appear and after clicking on that, the contact form will be renewed.
 -
 -
 
@@ -59,7 +59,7 @@ Trivia page
 - Afterwards, click on the Next button below the Check Answer button to show the next question.
 - Repeat process until all 5 quiz qeustions has been answered.
 - After completing the quiz questions, user score will be shown and a dicount code will be given as an appreciation for user participation.
-- This discount code can be used when user checks out the items they want to purschase from the record store.
+- This discount code can be used when user wants to check out the items they want to purchase.
 
 ## Spotify Feature
 
@@ -69,7 +69,7 @@ Trivia page
 -
 - **_Credits_**
 
-- ChatGPT helped to face some errors we face when creating this website
+- ChatGPT helped to solve some errors we face when creating this website
 
 **Media**
 The photos from this site were obtained from:
