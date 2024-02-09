@@ -1,6 +1,6 @@
 const redirect = "http://localhost:8888/logged";
 const client_id = "a644b20888dc4eb182b3f8d546a678ca";
-const client_secret = "5acd2502954048fdb552c5a145f123da"; // Replace with your actual client secret
+const client_secret = "5acd2502954048fdb552c5a145f123da";
 
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const TOKEN = "https://accounts.spotify.com/api/token";
@@ -107,7 +107,6 @@ function handleSongResponse(response) {
       }
     });
   } else if (response.status === 401) {
-    // If unauthorized, redirect to get a new access token
     getNewAccessToken();
   } else {
     console.error(
@@ -220,7 +219,7 @@ function addToCart(songData) {
     cartItems.push({
       title: songData.name,
       description: songData.album.name,
-      price: 45.0,
+      price: songData.artists[0].name,
       quantity: 1,
       imageUrl:
         songData.album.images && songData.album.images.length > 1
@@ -229,8 +228,8 @@ function addToCart(songData) {
     });
   }
 
+  // Save updated cart items to local storage
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  console.log("Updated Cart Items:", cartItems); // <-- Corrected log statement
 
   // Update the cart quantity display
   const cartQuantityElement = document.querySelector(".quantity");
